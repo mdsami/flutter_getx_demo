@@ -5,11 +5,27 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Getx'),
+        backgroundColor: Colors.black,
+        title: Text('GetX Demo'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text('We are Learing Getx'),
+      body: Column(
+        children: <Widget>[
+          GridView(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(top: 20),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, childAspectRatio: 1.4),
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                },
+              )
+            ],
+          )
+        ],
       ),
     );
   }
